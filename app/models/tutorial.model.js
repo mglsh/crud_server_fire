@@ -3,7 +3,8 @@ module.exports = mongoose => {
     {
       title: String,
       description: String,
-      published: Boolean
+      published: Boolean,
+      stateSounderOn: Boolean
     },
     { timestamps: true }
   );

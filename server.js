@@ -2,8 +2,10 @@ const express = require("express");
 // const bodyParser = require("body-parser"); /* deprecated */
 const cors = require("cors");
 
+const path = __dirname + '/app/views/';
 const app = express();
 
+app.use(express.static(path));
 let corsOptions = {
   origin: "http://localhost:8081"
 };
@@ -31,8 +33,8 @@ db.mongoose
   });
 
 // simple route
-app.get("/", (req, res) => {
-  res.json({ message: "Welcome to Fire application." });
+app.get('/', function (req,res) {
+  res.sendFile(path + "index.html");
 });
 
 require("./app/routes/turorial.routes")(app);

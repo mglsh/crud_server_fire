@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: true }));   /* bodyParser.urlencoded() is
 
 const db = require("./app/models");
 db.mongoose
-  .connect(db.url, {
+  .connect(process.env.MONGOLAB_URI || "mongodb+srv://Misha:Misha@firedb.n0jrj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
